@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
-    tools:context=".MainActivity">
+    tools:context=".RegisterActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Login"
+        android:text="Register"
         style="@style/TextAppearance.MaterialComponents.Headline4"/>
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/TilEmail"
@@ -23,7 +22,7 @@
         >
 
         <EditText
-            android:id="@+id/et_login_Email"
+            android:id="@+id/et_register_Email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/prompt_email"
@@ -37,26 +36,25 @@
         android:layout_centerInParent="true">
 
         <EditText
-            android:id="@+id/et_login_password"
+            android:id="@+id/et_register_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/prompt_password"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
-<Button
-    android:id="@+id/Btn_login"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_below="@id/TilPassword"
-    android:layout_marginTop="10dp"
-    android:text="LOGIN"/>
+    <Button
+        android:id="@+id/Btn_Register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/TilPassword"
+        android:layout_marginTop="10dp"
+        android:text="Register"/>
     <TextView
-        android:id="@+id/tv_Sign_up"
+        android:id="@+id/tv_Login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/no_account"
-        android:layout_below="@id/Btn_login"
+        android:text="@string/alreadyhaveAccount"
+        android:layout_below="@id/Btn_Register"
         android:layout_centerHorizontal="true"
         style="@style/TextAppearance.AppCompat.Caption"/>
-
 </RelativeLayout>
