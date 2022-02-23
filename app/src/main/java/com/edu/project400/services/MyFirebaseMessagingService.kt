@@ -54,10 +54,10 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
-       // if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.0){
-       //     val notificationChannel = NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_HIGH)
-       //     notificationManager.createNotificationChannel(notificationChannel)
-       // }
+        /*if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.0){
+            val notificationChannel = NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_HIGH)
+            notificationManager.createNotificationChannel(notificationChannel)
+        }*/
         notificationManager.notify(0,builder.build())
     }
 
