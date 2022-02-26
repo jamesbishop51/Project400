@@ -5,25 +5,19 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
-import com.edu.project400.databinding.ActivityRegisterBinding
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_register.*
 
-
 class RegisterActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityRegisterBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityRegisterBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-
-        binding.BtnRegister.setOnClickListener{
+        setContentView(R.layout.activity_register)
+        Btn_Register.setOnClickListener{
             when {
-                TextUtils.isEmpty(binding.etRegisterEmail.text.toString().trim { it <= ' ' }) -> {
+                TextUtils.isEmpty(et_register_Email.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         this@RegisterActivity,
                         "Please enter email.",
@@ -31,7 +25,7 @@ class RegisterActivity : AppCompatActivity() {
                     ).show()
                 }
 
-                TextUtils.isEmpty(binding.etRegisterPassword.text.toString().trim { it <= ' ' }) -> {
+                TextUtils.isEmpty(et_register_password.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         this@RegisterActivity,
                         "Please enter password.",
@@ -40,8 +34,8 @@ class RegisterActivity : AppCompatActivity() {
                 }
                 else -> {
 
-                    val email: String = binding.etRegisterEmail.text.toString().trim { it <= ' ' }
-                    val password: String = binding.etRegisterPassword.text.toString().trim { it <= ' ' }
+                    val email: String = et_register_Email.text.toString().trim { it <= ' ' }
+                    val password: String = et_register_password.text.toString().trim { it <= ' ' }
 
                     // Create an instance and create a register a user with email and password.
                     FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
@@ -79,7 +73,7 @@ class RegisterActivity : AppCompatActivity() {
                 }
             }
         }
-        binding.tvLogin.setOnClickListener {
+        tv_Login.setOnClickListener {
 
             onBackPressed()
         }
