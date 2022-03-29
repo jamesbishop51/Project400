@@ -1,4 +1,7 @@
 package com.edu.project400
 
-class S3File {
-}
+data class S3File (
+    val path: String,
+    val key: String,
+    val origin: String
+)
