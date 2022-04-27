@@ -15,6 +15,9 @@ import androidx.core.content.ContextCompat
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import com.amplifyframework.core.Amplify
+import com.google.firebase.messaging.FirebaseMessaging
+import com.google.android.gms.tasks.OnCompleteListener
+import android.content.ContentValues.TAG
 import java.io.*
 
 class MainActivity : AppCompatActivity() {
@@ -26,6 +29,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val userId = intent.getStringExtra("user_id")
         val emailId = intent.getStringExtra("email_id")
+        //needed for sending the firebase notifications from the python code.
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Log.w(TAG, "Fetching FCM registration token failed", task.exception)
+                return@OnCompleteListener
+            }
+
+            // Get new FCM registration token
+            val token = task.result
+
+            // Log
+            tv_firebase_token.text = "Token: $token"
+
+        })
 
         tv_user_id.text = "User ID :: $userId"
         tv_email_id.text = "Email ID :: $emailId"
@@ -38,7 +55,10 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
         btn_images.setOnClickListener{
-            startActivity(Intent(this@MainActivity, ImageActivity::class.java))
+            val intent = Intent(this@MainActivity, ImageActivity::class.java)
+            intent.putExtra("email_id",emailId)
+            intent.putExtra("user_id",userId)
+            startActivity(intent)
             finish()
         }
 

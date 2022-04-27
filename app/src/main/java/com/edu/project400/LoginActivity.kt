@@ -19,22 +19,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         AmplifyInit().initializeAmplify(this@LoginActivity)
-//        needed for sending the firebase notifications from the python code.
-//        will attach this to a button and text box for easy use later.
-//        will move this to a dedicated user page also and not in login, currently here for dev purposes.
-//        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
-//            if (!task.isSuccessful) {
-//                Log.w(TAG, "Fetching FCM registration token failed", task.exception)
-//                return@OnCompleteListener
-//            }
-//
-//            // Get new FCM registration token
-//            val token = task.result
-//
-//            // Log
-//            Log.d(TAG, "Token::$token")
-//
-//        })
+
         tv_Sign_up.setOnClickListener{
             startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
         }

@@ -8,26 +8,30 @@
     android:padding="20dp"
     android:gravity="center"
     tools:context=".MainActivity">
-
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="FireBase FCM Token"
+    android:textStyle="bold"/>
     <TextView
+        android:id="@+id/tv_firebase_token"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="You are logged in successfully."
-        android:textSize="20sp"
-        android:textStyle="bold"
          />
 
     <TextView
         android:id="@+id/tv_user_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="123456789" />
+        tools:text="123456789"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/tv_email_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="abc@gmail.com" />
+        tools:text="abc@gmail.com"
+        android:textStyle="bold"/>
 
     <Button
         android:id="@+id/btn_logout"
@@ -49,11 +53,5 @@
         android:textSize="18sp"
         android:textStyle="bold"
         />
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:text="Select File"
-        />
+
 </LinearLayout>

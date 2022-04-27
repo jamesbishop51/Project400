@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Project400</string>
+    <string name="app_name">Pi-Sees</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>

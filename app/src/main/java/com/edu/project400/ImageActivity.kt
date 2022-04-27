@@ -14,11 +14,14 @@ import kotlinx.android.synthetic.main.activity_image.*
 import java.io.File
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
+import android.content.Intent
 
 class ImageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_image)
+        val userId = intent.getStringExtra("user_id")
+        val emailId = intent.getStringExtra("email_id")
         Amplify.Storage.list(
             "",
             { result ->
@@ -27,7 +30,7 @@ class ImageActivity : AppCompatActivity() {
                     val files = arrayListOf<String>()
                     result.getItems().forEach { item ->
                         Log.d("MyAmplifyApp", "Item: " + item.getKey())
-                        filesTxt += item.key +" ${(item.size).div(1000)}KB"
+                        filesTxt += "\n"+item.key +" ${(item.size).div(1000)}KB"
                         files += item.key
                     }
                     withContext(Dispatchers.Main){
@@ -50,6 +53,13 @@ class ImageActivity : AppCompatActivity() {
             { error -> Log.e("MyAmplifyApp", "List failure", error) }
         )
 
+
+        btn_image_back.setOnClickListener{
+            val intent = Intent(this@ImageActivity, MainActivity::class.java)
+            intent.putExtra("email_id",emailId)
+            intent.putExtra("user_id",userId)
+            startActivity(intent)
+        }
 
 
 
